@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Background with Videos</title>
+    <style>
+        /* Global Styles for the body */
+        body {
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+            overflow: auto;
+        }
+
+        /* Video styling */
+        video {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease; /* Smooth transition for size and positioning */
+        }
+
+        /* Shared text styling for all location texts */
+        .locationText {
+            position: absolute;
+            font-size: 0.8rem;
+            color: white;
+            font-family: 'Futura', sans-serif;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            z-index: 3;
+            transition: opacity 0.3s ease;
+        }
+
+        #sohoVideo {
+            top: 30%;
+            left: 35%;
+            width: 15vw;
+            z-index: 2; /* Higher z-index to ensure it's above Kings Cross */
+        }
+
+        #sohoText {
+            top: 45%;
+            left: 42%;
+            transform: translate(-50%, -50%);
+        }
+
+        #chinatownVideo {
+            top: 45%;
+            left: 43%;
+            width: 15vw;
+            z-index: 1;
+        }
+
+        #chinatownText {
+            top: 56%;
+            left: 51%;
+            transform: translate(-50%, -50%);
+        }
+
+        #pimlico2Video {
+            top: 78%;
+            left: 30%;
+            width: 25vw;
+        }
+
+        #pimlico2Text {
+            top: 92%;
+            left: 43%;
+            transform: translate(-50%, -50%);
+        }
+
+        #angelVideo {
+            top: 5%;
+            left: 75%;
+            width: 18vw;
+            z-index: 1; /* Lower z-index to place it below other videos */
+        }
+
+        #angelText {
+            top: 20%;
+            left: 84%;
+            transform: translate(-50%, -50%);
+        }
+
+        #shorVideo {
+            top: 40%;
+            left: 85%;
+            width: 15vw;
+            z-index: 2; /* Higher z-index to place it above angelVideo */
+        }
+
+        #shorText {
+            top: 56%;
+            left: 92%;
+            transform: translate(-50%, -50%);
+        }
+
+        #paulVideo {
+            top: 55%;
+            left: 66%;
+            width: 15vw;
+        }
+
+        #paulText {
+            top: 70%;
+            left: 73%;
+            transform: translate(-50%, -50%);
+        }
+
+        #kingsVideo {
+            top: 0%;
+            left: 50%;
+            width: 15vw;
+            z-index: 0; /* Lower z-index to place Kings Cross behind Soho */
+        }
+
+        #kingsText {
+            top: 12%;
+            left: 57%;
+            transform: translate(-50%, -50%);
+        }
+
+        #primroseVideo {
+            top: -2%;
+            left: 10%;
+            width: 15vw;
+        }
+
+        #primroseText {
+            top: 12%;
+            left: 18%;
+            transform: translate(-50%, -50%);
+        }
+
+        #hydeVideo {
+            top: 60%;
+            left: 5%;
+            width: 15vw;
+        }
+
+        #hydeText {
+            top: 74%;
+            left: 12%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Large size styling when clicked */
+        .largeVideo {
+            transform: scale(1.8); /* Scale the video 1.5x when clicked */
+            z-index: 10; /* Bring the video to the front */
+        }
+    </style>
+</head>
+<body>
+    <!-- Video for Soho -->
+    <video id="sohoVideo" loop muted autoplay>
+        <source src="soho.mov" type="video/quicktime"> <!-- MOV with video/quicktime -->
+        <source src="soho.mp4" type="video/mp4"> <!-- MP4 fallback -->
+        Your browser does not support the video tag.
+    </video>
+    <div id="sohoText" class="locationText">Soho</div>
+
+    <!-- Other videos and text elements -->
+    <video id="chinatownVideo" loop muted autoplay>
+        <source src="chinatown.mov" type="video/quicktime">
+        <source src="chinatown.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="chinatownText" class="locationText">Chinatown</div>
+
+    <video id="pimlico2Video" loop muted autoplay>
+        <source src="pimlico2.mov" type="video/quicktime">
+        <source src="pimlico2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="pimlico2Text" class="locationText">Pimlico</div>
+
+    <video id="angelVideo" loop muted autoplay>
+        <source src="angel.mov" type="video/quicktime">
+        <source src="angel.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="angelText" class="locationText">Angel</div>
+
+    <video id="shorVideo" loop muted autoplay>
+        <source src="shor.mov" type="video/quicktime">
+        <source src="shor.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="shorText" class="locationText">Shoreditch</div>
+
+    <video id="paulVideo" loop muted autoplay>
+        <source src="paul.mov" type="video/quicktime">
+        <source src="paul.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="paulText" class="locationText">St. Paul</div>
+
+    <video id="kingsVideo" loop muted autoplay>
+        <source src="kings.mov" type="video/quicktime">
+        <source src="kings.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="kingsText" class="locationText">Kings Cross</div>
+
+    <video id="primroseVideo" loop muted autoplay>
+        <source src="primrose.mov" type="video/quicktime">
+        <source src="primrose.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="primroseText" class="locationText">chalk farm</div>
+
+    <video id="hydeVideo" loop muted autoplay>
+        <source src="hyde.mov" type="video/quicktime">
+        <source src="hyde.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="hydeText" class="locationText">Hyde Park</div>
+
+    <script>
+        // Function to toggle the size of the video and hide/show the text
+        function toggleVideoState(videoElement, textElement) {
+            // Toggle mute
+            videoElement.muted = !videoElement.muted;
+
+            // Toggle the class 'largeVideo' which scales the video size
+            if (videoElement.classList.contains('largeVideo')) {
+                videoElement.classList.remove('largeVideo'); // Return to original size
+                textElement.style.opacity = '1';  // Show the text again
+            } else {
+                videoElement.classList.add('largeVideo'); // Enlarge the video
+                textElement.style.opacity = '0';  // Hide the text
+            }
+        }
+
+        // Add event listeners to all videos and their associated text
+        const allVideos = [
+            { video: document.getElementById('sohoVideo'), text: document.getElementById('sohoText') },
+            { video: document.getElementById('chinatownVideo'), text: document.getElementById('chinatownText') },
+            { video: document.getElementById('pimlico2Video'), text: document.getElementById('pimlico2Text') },
+            { video: document.getElementById('angelVideo'), text: document.getElementById('angelText') },
+            { video: document.getElementById('shorVideo'), text: document.getElementById('shorText') },
+            { video: document.getElementById('paulVideo'), text: document.getElementById('paulText') },
+            { video: document.getElementById('kingsVideo'), text: document.getElementById('kingsText') },
+            { video: document.getElementById('primroseVideo'), text: document.getElementById('primroseText') },
+            { video: document.getElementById('hydeVideo'), text: document.getElementById('hydeText') }
+        ];
+
+        // Attach the event listeners
+        allVideos.forEach(item => {
+            item.video.addEventListener('click', () => {
+                toggleVideoState(item.video, item.text); // Toggle size and text visibility on click
+            });
+        });
+    </script>
+</body>
+</html>
